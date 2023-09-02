@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+
+ .box4{   
+    border: 2px solid red;   
+
+        height: 900px;
+        width: 300px;
+        animation-name:myAnimation;
+        animation-duration:10s;
+        animation-iteration-count: infinite;
+ }
+
+@keyframes myAnimation {
+       0%{ background-image: url("./cap1.png"); background-size: 300px 600px;}
+       20%{ background-image: url("./cap2.png"); background-size: 300px 600px;}
+       40%{ background-image: url("./cap3.png"); background-size: 300px 600px;}
+       60%{ background-image: url("./cap4.png"); background-size: 300px 600px;}  
+       80%{ background-image: url("./cap5.png"); background-size: 300px 600px;}  
+       100%{ background-image: url("./cap6.png"); background-size: 300px 600px;}  
+ }
+    </style>
+</head>
+<body>
+    <div class="box4"></div>
+</body>
+</html>

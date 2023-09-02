@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyLab</title>
+    <style>
+        #navbar {
+            display: flex;
+            width: auto;
+            height: 80px;
+            justify-content: space-between;
+            box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+        } 
+        #logo {
+            height: 80px;
+            margin-left: 60px;
+        }
+        #menu{
+            display: flex;
+           margin-right: 150px;
+           
+           
+        }
+        #menu > div {
+            margin: 20px;
+        }
+        #menu>div>a{
+            text-decoration: none;
+            color: black;
+            font-size: 20px;
+            font-weight: bold;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            
+        }
+        #mainbox {
+            display: grid;
+            width: 40%;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, auto);
+            
+        }
+        .box {
+            height: 250px;
+            width: 200px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            padding: 10px;
+            padding-top: 20px;
+            margin: 20px;
+        }
+        .box>img {
+            height: 50px;
+        }
+        .main {
+            display: flex;
+            margin: 20px;
+            margin-top: 60px;
+        
+        }
+        #mainpara {
+            margin-right: 50px;
+            padding: 50px;
+          
+        }
+        #bottom {
+            display: flex;
+            margin: 50px;
+        }
+        #bottom>img {
+            height: 100px;
+        }
+        #bottom>p {
+            margin-left: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar">
+        <div >
+            <img id="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLYRhgmbU4mlrEHsBIrS0Su9jiFbFt2PQAlw&usqp=CAU" alt="">
+        </div>  
+        <div id="menu">
+            <div><a href="#">Home</a></div>
+            <div><a href="#">About</a></div>
+            <div><a href="#">Courses</a></div>
+            <div><a href="#">Instructor</a></div>
+            <div><a href="#">Blog</a></div>
+            <div><a href="#">Contact</a></div>            
+        </div>
+      </div>
+    <div class="main">
+        <div id="mainpara">
+            <p style="color: blue; font-weight: bold;">WELCOME TO STUDYLAB</p>
+                <h1>We Are StudyLab An Online Learning Center</h1>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                <div id="bottom">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7Yq8h6cTQREmfhtX4Woclv2iI78OJIvBMSQ&usqp=CAU" alt="">
+                    <p>Learn anything from StudyLab, Watch video</p>
+                </div>
+        </div>
+        <div id="mainbox">
+            <div class="box">
+                <img src="https://codeboxr.com/wp-content/uploads/productshots/8171/poll_system_icon.svg" alt="">
+                <h2>Top Quality Content</h2>
+               <div class="p"><p>A small river named Duden flows by their place and supplies</p></div> 
+            </div>
+            <div class="box">
+                <img src="https://codeboxr.com/wp-content/uploads/productshots/8171/scheduling_icon.svg" alt="">
+                <h2>Highly Skilled Instructor</h2>
+                <div class="p"><p>A small river named Duden flows by their place and supplies</p></div>
+            </div>
+            <div class="box">
+                <img src="https://codeboxr.com/wp-content/uploads/productshots/8171/ip_cookie_icon.svg" alt="">
+                <h2>World Class & Quiz</h2>
+                <p>A small river named Duden flows by their place and supplies</p>
+            </div>
+            <div class="box">
+                <img src="https://codeboxr.com/wp-content/uploads/productshots/8171/shortcode_icon.svg" alt="">
+                <h2>Get Certified</h2>
+                <p>A small river named Duden flows by their place and supplies</p>
+            </div>       
+        </div>
+    </div>
+    
+</body>
+</html>
