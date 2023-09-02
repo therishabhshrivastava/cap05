@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capture and Display</title>
+</head>
+<body>
+    <input type="text" name="name" id="myInput">
+    <button id="myButton" onclick="submit()">Submit</button>
+    <br>
+    <p id="display"></p>
+</body>
+<script type="text/javascript">
+    function submit() {
+        let input = document.getElementById("myInput").value;
+        let display = document.getElementById("display");
+        alert(input);
+        display.innerText = "Entered Value: "+input;
+
+    }
+</script>
+</html>
