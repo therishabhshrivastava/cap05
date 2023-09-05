@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masai Calculator Grid</title>
+    <style>
+        h1{
+            text-align: center;
+            font-size: 60px;
+            color: teal;
+        }
+        #calculator {
+            height: 450px;
+            width: 400px;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            margin: auto;
+            padding: 40px;
+           
+        }
+        #output {
+            font-size: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 60px;
+            width: 100%;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            margin: auto;
+            border-radius: 10px;
+        }
+        #keyboard {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, 80px);
+            gap: 10px;
+            margin-top: 20px;
+        }
+        #keyboard>div {
+            border-radius: 10px;
+            font-size: 25px;
+            font-weight: bold;   
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        }
+        
+        .black {
+            background-color: black;
+            color: white;
+        }
+        .red {
+            background-color: red;
+            color: white;
+        }
+        .number {
+            background-color: white;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Masai Calculator</h1>
+    <div id="calculator">
+    <div id="output"></div>
+    <div id="keyboard">
+        <div class="number">1</div>
+        <div class="number">2</div>
+        <div class="number">3</div>
+        <div class="black" id="plus">+</div>
+        <div class="number">4</div>
+        <div class="number">5</div>
+        <div class="number">6</div>
+        <div class="black" id="minus">-</div>
+        <div class="number">7</div>
+        <div class="number">8</div>
+        <div class="number">9</div>
+        <div class="black" id="multiply">*</div>
+        <div class="red" id="clear">C</div>
+        <div class="number">0</div>
+        <div class="black" id="equal">=</div>
+        <div class="black" id="divide">/</div>
+    </div>
+    </div>    
+</body>
+<script>
+    let output = document.getElementById("output");
+    let numberBTN = document.getElementsByClassName("number");
+    let plus = document.getElementById("plus");
+    let minus = document.getElementById("minus");
+    let multiply = document.getElementById("multiply");
+    let divide = document.getElementById("divide");
+    let equal = document.getElementById("equal");
+    let clear = document.getElementById("clear");
+
+    let operator = "";
+    let outputText = "";
+    let myNumbers = [];
+
+    for(let i=0; i<numberBTN.length; i++) {
+        numberBTN[i].addEventListener("click", (e) => {
+            outputText = outputText+ e.target.innerText;
+            console.log(outputText);
+            output.innerText = outputText;
+        })
+    }
+
+    plus.addEventListener("click", function () {
+        myNumbers.push(+outputText);
+        console.log(myNumbers);
+        outputText = "";
+        output.innerText = "";
+        operator = "plus";
+    })
+
+    minus.addEventListener("click", function () {
+        myNumbers.push(+outputText);
+        console.log(myNumbers);
+        outputText = "";
+        output.innerText = "";
+        operator = "minus";
+    })
+
+    clear.addEventListener("click", function () {
+        myNumbers.push(+outputText);
+        console.log(myNumbers);
+        outputText = "";
+        output.innerText = "";
+        operator = "clear";
+    })
+
+    multiply.addEventListener("click", function () {
+        myNumbers.push(+outputText);
+        console.log(myNumbers);
+        outputText = "";
+        output.innerText = "";
+        operator = "multiply";
+    })
+
+    divide.addEventListener("click", function () {
+        myNumbers.push(+outputText);
+        console.log(myNumbers);
+        outputText = "";
+        output.innerText = "";
+        operator = "divide";
+    })
+
+    equal.addEventListener("click", function () {
+        myNumbers.push(+outputText);
+        outputText = "";
+        if(operator == "plus") {
+            output.innerText = myNumbers[0] + myNumbers[1];
+        }
+        else if (operator == "minus") {
+            output.innerText = myNumbers[0] - myNumbers[1];
+        }
+        else if (operator == "multiply") {
+            output.innerText = myNumbers[0] * myNumbers[1];
+        }
+        else if (operator == "divide") {
+            output.innerText = myNumbers[0] / myNumbers[1];
+        }
+        else if (operator == "clear") {
+            output.innerText = "";
+        }
+    })
+</script>
+</html>
