@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online BookStore</title>
+</head>
+<body>
+    
+</body>
+<script>
+    
+function Author(name, birthYear, nationality) {
+ this.name = name;
+ this.birthYear = birthYear;
+ this.nationality = nationality;
+}
+
+
+function Book(title, author, genre, price) {
+ this.title = title;
+ this.author = author;
+ this.genre = genre;
+ this.price = price;
+}
+
+
+Book.prototype.getBookInfo = function() {
+ return `${this.title} by ${this.author.name}, ${this.genre}, $${this.price}`;
+}
+
+
+let author1 = new Author('George R. R. Martin', 1948, 'American');
+let book1 = new Book('A Song of Ice and Fire', author1, 'fantasy', 10.99);
+
+let author2 = new Author('J.K. Rowling', 1965, 'British');
+let book2 = new Book('Harry Potter and the Philosopher\'s Stone', author2, 'fantasy', 12.99);
+
+
+console.log(book1.getBookInfo()); 
+console.log(book2.getBookInfo()); 
+
+</script>
+</html>
