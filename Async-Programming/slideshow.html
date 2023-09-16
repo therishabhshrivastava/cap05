@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Slideshow</title>
+    <style>
+        body {
+    text-align: center;
+}
+
+.slideshow-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.slides {
+    display: flex;
+    overflow: hidden;
+}
+
+.slides img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s ease-in-out;
+}
+
+    </style>
+</head>
+<body>
+    <div class="slideshow-container">
+        <div class="slides">
+            <img src="https://c4.wallpaperflare.com/wallpaper/224/829/129/digital-digital-art-artwork-illustration-simple-hd-wallpaper-preview.jpg" alt="Image 1">
+            <img src="https://c4.wallpaperflare.com/wallpaper/443/322/368/zack-snyder-s-justice-league-justice-league-dc-comics-dc-legends-dc-universe-hd-wallpaper-preview.jpg" alt="Image 2">
+            <img src="https://c4.wallpaperflare.com/wallpaper/228/684/1/video-games-spider-man-2018-spider-man-marvel-comics-wallpaper-preview.jpg" alt="Image 3">
+            <img src="https://c4.wallpaperflare.com/wallpaper/742/567/766/joker-dc-universe-joker-from-batman-wallpaper-preview.jpg" alt="Image 4">
+            <img src="https://c4.wallpaperflare.com/wallpaper/656/107/647/miles-morales-marvel-comics-spider-man-into-the-spider-verse-spider-man-wallpaper-preview.jpg" alt="Image 5">
+            <img src="https://c4.wallpaperflare.com/wallpaper/332/986/474/batman-factory-batwoman-nightwing-bad-blood-hd-wallpaper-preview.jpg" alt="Image 6">
+            <img src="https://c4.wallpaperflare.com/wallpaper/185/321/246/superman-superhero-dc-universe-dc-comics-wallpaper-preview.jpg" alt="Image 7">
+            <img src="https://c4.wallpaperflare.com/wallpaper/785/965/129/movie-spider-man-into-the-spider-verse-marvel-comics-miles-morales-spider-man-hd-wallpaper-preview.jpg" alt="Image 8">
+            <img src="https://c4.wallpaperflare.com/wallpaper/800/205/71/batman-the-animated-series-dc-comics-dc-universe-batman-returns-the-dark-knight-hd-wallpaper-preview.jpg" alt="Image 9">
+            <img src="https://c4.wallpaperflare.com/wallpaper/591/844/1024/spider-man-spider-video-games-superhero-wallpaper-preview.jpg" alt="Image 10">
+            <img src="https://images3.alphacoders.com/682/thumbbig-682910.webp" alt="Image 11">
+            <img src="https://images7.alphacoders.com/133/thumbbig-1330752.webp" alt="Image 12">
+            <img src="https://c4.wallpaperflare.com/wallpaper/626/913/146/cyberpunk-skyscraper-upside-down-animated-movies-wallpaper-preview.jpg" alt="Image 13">
+            <img src="https://images8.alphacoders.com/106/thumbbig-1069186.webp" alt="Image 14">
+            <img src="https://c4.wallpaperflare.com/wallpaper/293/952/22/iron-man-marvel-comics-superhero-the-avengers-wallpaper-preview.jpg" alt="Image 15">
+            <img src="https://images5.alphacoders.com/100/thumbbig-1009035.webp" alt="Image 16">
+            <img src="https://c4.wallpaperflare.com/wallpaper/128/887/619/spider-man-marvel-comics-comics-spider-wallpaper-preview.jpg" alt="Image 17">
+            <img src="https://images2.alphacoders.com/108/thumbbig-1083566.webp" alt="Image 18">
+            <img src="https://c4.wallpaperflare.com/wallpaper/535/901/196/the-avengers-avengers-endgame-avengers-endgame-iron-man-marvel-comics-hd-wallpaper-preview.jpg" alt="Image 19">
+            <img src="https://images5.alphacoders.com/107/thumbbig-1075650.webp" alt="Image 20">
+
+            <!-- Add more images here -->
+        </div>
+        <button id="startStopButton">Start</button>
+        <button id="prevButton">Previous</button>
+        <button id="nextButton">Next</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+<script>
+    const slides = document.querySelectorAll(".slides img");
+const startStopButton = document.getElementById("startStopButton");
+const prevButton = document.getElementById("prevButton");
+const nextButton = document.getElementById("nextButton");
+let currentIndex = 0;
+let intervalId = null;
+let isPlaying = false;
+
+function startSlideShow() {
+    isPlaying = true;
+    startStopButton.textContent = "Stop";
+    intervalId = setInterval(showNextSlide, 1000);
+}
+
+function stopSlideShow() {
+    isPlaying = false;
+    startStopButton.textContent = "Start";
+    clearInterval(intervalId);
+}
+
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.style.transform = `translateX(${100 * (i - index)}%)`;
+    });
+}
+
+function showNextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
+}
+
+function showPreviousSlide() {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    showSlide(currentIndex);
+}
+
+startStopButton.addEventListener("click", () => {
+    if (isPlaying) {
+        stopSlideShow();
+    } else {
+        startSlideShow();
+    }
+});
+
+prevButton.addEventListener("click", () => {
+    stopSlideShow();
+    showPreviousSlide();
+});
+
+nextButton.addEventListener("click", () => {
+    stopSlideShow();
+    showNextSlide();
+});
+
+startSlideShow();
+
+</script>
+</html>

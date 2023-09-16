@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <style>
+        #timer-container {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="timer-container">
+        <h1>Timer</h1>
+        <input type="number" id="hours" placeholder="Hours">
+        <input type="number" id="minutes" placeholder="Minutes">
+        <input type="number" id="seconds" placeholder="Seconds">
+        <br><br>
+        <button id="start">Start</button>
+        <button id="pause">Pause</button>
+        <button id="reset">Reset</button>
+        <div id="display">00:00:00</div>
+    </div>
+
+    <script>
+        let timer;
+        let startTime;
+        let running = false;
+
+        function startTimer() {
+            if (!running) {
+                const hours = parseInt(document.getElementById("hours").value) || 0;
+                const minutes = parseInt(document.getElementById("minutes").value) || 0;
+                const seconds = parseInt(document.getElementById("seconds").value) || 0;
+
+                const totalSeconds = hours * 3600 + minutes * 60 + seconds;
+
+                if (totalSeconds > 0) {
+                    startTime = Date.now() - totalSeconds * 1000;
+                    updateDisplay(totalSeconds);
+                    timer = setInterval(updateTimer, 1000);
+                    running = true;
+                }
+            }
+        }
+
+        function updateTimer() {
+            const currentTime = Date.now();
+            const elapsedSeconds = Math.floor((currentTime - startTime) / 1000);
+            const remainingSeconds = Math.max(0, totalSeconds - elapsedSeconds);
+
+            if (remainingSeconds === 0) {
+                clearInterval(timer);
+                running = false;
+            }
+
+            updateDisplay(remainingSeconds);
+        }
+
+        function updateDisplay(seconds) {
+            const hours = Math.floor(seconds / 3600);
+            const minutes = Math.floor((seconds % 3600) / 60);
+            const secs = seconds % 60;
+
+            const display = `${formatTime(hours)}:${formatTime(minutes)}:${formatTime(secs)}`;
+            document.getElementById("display").textContent = display;
+        }
+
+        function formatTime(value) {
+            return value < 10 ? `0${value}` : `${value}`;
+        }
+
+        document.getElementById("start").addEventListener("click", startTimer);
+        document.getElementById("pause").addEventListener("click", () => {
+            clearInterval(timer);
+            running = false;
+        });
+        document.getElementById("reset").addEventListener("click", () => {
+            clearInterval(timer);
+            running = false;
+            document.getElementById("hours").value = "";
+            document.getElementById("minutes").value = "";
+            document.getElementById("seconds").value = "";
+            document.getElementById("display").textContent = "00:00:00";
+        });
+    </script>
+</body>
+</html>

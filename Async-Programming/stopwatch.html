@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        #time {
+            font-size: 2rem;
+        }
+
+        #controls {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Stopwatch</h1>
+    <div id="time">00:00:00</div>
+    <div id="controls">
+        <button id="start">Start</button>
+        <button id="pause">Pause</button>
+        <button id="reset">Reset</button>
+    </div>
+
+    <script>
+        let timer;
+        let startTime;
+        let isRunning = false;
+
+        const timeDisplay = document.getElementById('time');
+        const startButton = document.getElementById('start');
+        const pauseButton = document.getElementById('pause');
+        const resetButton = document.getElementById('reset');
+
+        startButton.addEventListener('click', start);
+        pauseButton.addEventListener('click', pause);
+        resetButton.addEventListener('click', reset);
+
+        function start() {
+            if (!isRunning) {
+                startTime = Date.now() - (startTime ? startTime - Date.now() : 0);
+                timer = setInterval(updateTime, 1000);
+                isRunning = true;
+                startButton.disabled = true;
+                pauseButton.disabled = false;
+            }
+        }
+
+        function pause() {
+            if (isRunning) {
+                clearInterval(timer);
+                isRunning = false;
+                startButton.disabled = false;
+                pauseButton.disabled = true;
+            }
+        }
+
+        function reset() {
+            clearInterval(timer);
+            isRunning = false;
+            startTime = null;
+            updateTime();
+            startButton.disabled = false;
+            pauseButton.disabled = true;
+        }
+
+        function updateTime() {
+            if (startTime) {
+                const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+                const seconds = elapsedTime % 60;
+                const minutes = Math.floor((elapsedTime / 60) % 60);
+                const hours = Math.floor(elapsedTime / 3600);
+
+                const timeString = formatTime(hours, minutes, seconds);
+                timeDisplay.textContent = timeString;
+            } else {
+                timeDisplay.textContent = '00:00:00';
+            }
+        }
+
+        function formatTime(hours, minutes, seconds) {
+            return `${hours > 0 ? pad(hours) + ':' : ''}${minutes > 0 || hours > 0 ? pad(minutes) + ':' : ''}${pad(seconds)}`;
+        }
+
+        function pad(value) {
+            return value.toString().padStart(2, '0');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automobile</title>
+</head>
+<body>
+    
+</body>
+<script>
+    
+function Automobile(make, model, year) {
+  this.make = make;
+  this.model = model;
+  this.year = year;
+}
+
+
+Automobile.prototype.drive = function () {
+  console.log(`Driving the ${this.year} ${this.make} ${this.model}`);
+};
+
+
+
+const FourWheelerPrototype = Object.create(Automobile.prototype);
+
+
+FourWheelerPrototype.numWheels = 4;
+
+
+function FourWheeler(make, model, year, fuelType) {
+  Automobile.call(this, make, model, year);
+  this.fuelType = fuelType;
+}
+
+
+FourWheeler.prototype = FourWheelerPrototype;
+
+
+const myFourWheeler = new FourWheeler('Toyota', 'Camry', 2023, 'Gasoline');
+
+
+console.log(myFourWheeler.make);      
+console.log(myFourWheeler.drive());    
+console.log(myFourWheeler.numWheels);  
+console.log(myFourWheeler.fuelType);   
+
+</script>
+</html>
