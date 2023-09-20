@@ -5,22 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stopwatch</title>
     <style>
-        body {
-            text-align: center;
-            font-family: Arial, sans-serif;
+       #time{
+            display: flex;
+            height: 100px;
+            width: 300px;
+            margin: auto;
+            align-items: center;
+            justify-content: center;
+            background-color:rgb(9, 63, 63);
+            color: white;
+            font-size: 4rem;
+            border-top-right-radius: 5px;
+            border-bottom-left-radius: 5px;
+            border-top-left-radius: 10px;
+            border-bottom-right-radius: 10px;
         }
-
-        #time {
-            font-size: 2rem;
+        h1{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
         }
-
-        #controls {
+        #controls{
+            display: flex;
             margin-top: 20px;
+            align-items: center;
+            justify-content: center;
         }
+        #controls > button {
+            margin: 10px;
+        }
+        #controls > button:hover {
+            cursor: pointer;
+        }
+        #start{
+            background-color: green;
+            color: white;
+            height: 50px;
+            width: 90px;
+            font-size: x-large;
+            border-radius: 10px;
+        }
+        #pause{
+            background-color: red;
+            color: white;
+            height: 50px;
+            width: 90px;
+            font-size: x-large;
+            border-radius: 10px;
+        }
+        #reset{
+            background-color: blue;
+            color: white;
+            height: 50px;
+            width: 90px;
+            font-size: x-large;
+            border-radius: 10px;
+        }
+        
     </style>
 </head>
 <body>
-    <h1>Stopwatch</h1>
+    <h1 style="font-weight: bolder; font-size: 40px;">Stopwatch</h1>
     <div id="time">00:00:00</div>
     <div id="controls">
         <button id="start">Start</button>

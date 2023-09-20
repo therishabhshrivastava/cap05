@@ -2,121 +2,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Slideshow</title>
-    <style>
-        body {
-    text-align: center;
-}
-
-.slideshow-container {
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.slides {
-    display: flex;
-    overflow: hidden;
-}
-
-.slides img {
-    width: 100%;
-    height: auto;
-    transition: transform 0.5s ease-in-out;
-}
-
-    </style>
+    <title>Image Slidehow</title>
 </head>
+<style>
+    #slideshow {
+        height: 600px;
+        width: 400px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        margin: auto;
+        padding: 40px;
+    }
+    #slideshow > img {
+        width: 100%;
+    }
+</style>
 <body>
-    <div class="slideshow-container">
-        <div class="slides">
-            <img src="https://c4.wallpaperflare.com/wallpaper/224/829/129/digital-digital-art-artwork-illustration-simple-hd-wallpaper-preview.jpg" alt="Image 1">
-            <img src="https://c4.wallpaperflare.com/wallpaper/443/322/368/zack-snyder-s-justice-league-justice-league-dc-comics-dc-legends-dc-universe-hd-wallpaper-preview.jpg" alt="Image 2">
-            <img src="https://c4.wallpaperflare.com/wallpaper/228/684/1/video-games-spider-man-2018-spider-man-marvel-comics-wallpaper-preview.jpg" alt="Image 3">
-            <img src="https://c4.wallpaperflare.com/wallpaper/742/567/766/joker-dc-universe-joker-from-batman-wallpaper-preview.jpg" alt="Image 4">
-            <img src="https://c4.wallpaperflare.com/wallpaper/656/107/647/miles-morales-marvel-comics-spider-man-into-the-spider-verse-spider-man-wallpaper-preview.jpg" alt="Image 5">
-            <img src="https://c4.wallpaperflare.com/wallpaper/332/986/474/batman-factory-batwoman-nightwing-bad-blood-hd-wallpaper-preview.jpg" alt="Image 6">
-            <img src="https://c4.wallpaperflare.com/wallpaper/185/321/246/superman-superhero-dc-universe-dc-comics-wallpaper-preview.jpg" alt="Image 7">
-            <img src="https://c4.wallpaperflare.com/wallpaper/785/965/129/movie-spider-man-into-the-spider-verse-marvel-comics-miles-morales-spider-man-hd-wallpaper-preview.jpg" alt="Image 8">
-            <img src="https://c4.wallpaperflare.com/wallpaper/800/205/71/batman-the-animated-series-dc-comics-dc-universe-batman-returns-the-dark-knight-hd-wallpaper-preview.jpg" alt="Image 9">
-            <img src="https://c4.wallpaperflare.com/wallpaper/591/844/1024/spider-man-spider-video-games-superhero-wallpaper-preview.jpg" alt="Image 10">
-            <img src="https://images3.alphacoders.com/682/thumbbig-682910.webp" alt="Image 11">
-            <img src="https://images7.alphacoders.com/133/thumbbig-1330752.webp" alt="Image 12">
-            <img src="https://c4.wallpaperflare.com/wallpaper/626/913/146/cyberpunk-skyscraper-upside-down-animated-movies-wallpaper-preview.jpg" alt="Image 13">
-            <img src="https://images8.alphacoders.com/106/thumbbig-1069186.webp" alt="Image 14">
-            <img src="https://c4.wallpaperflare.com/wallpaper/293/952/22/iron-man-marvel-comics-superhero-the-avengers-wallpaper-preview.jpg" alt="Image 15">
-            <img src="https://images5.alphacoders.com/100/thumbbig-1009035.webp" alt="Image 16">
-            <img src="https://c4.wallpaperflare.com/wallpaper/128/887/619/spider-man-marvel-comics-comics-spider-wallpaper-preview.jpg" alt="Image 17">
-            <img src="https://images2.alphacoders.com/108/thumbbig-1083566.webp" alt="Image 18">
-            <img src="https://c4.wallpaperflare.com/wallpaper/535/901/196/the-avengers-avengers-endgame-avengers-endgame-iron-man-marvel-comics-hd-wallpaper-preview.jpg" alt="Image 19">
-            <img src="https://images5.alphacoders.com/107/thumbbig-1075650.webp" alt="Image 20">
-
-            <!-- Add more images here -->
-        </div>
-        <button id="startStopButton">Start</button>
-        <button id="prevButton">Previous</button>
-        <button id="nextButton">Next</button>
+    <div id="slideshow">
+        <img name="img_slide" />
     </div>
-    <script src="script.js"></script>
 </body>
 <script>
-    const slides = document.querySelectorAll(".slides img");
-const startStopButton = document.getElementById("startStopButton");
-const prevButton = document.getElementById("prevButton");
-const nextButton = document.getElementById("nextButton");
-let currentIndex = 0;
-let intervalId = null;
-let isPlaying = false;
+    
 
-function startSlideShow() {
-    isPlaying = true;
-    startStopButton.textContent = "Stop";
-    intervalId = setInterval(showNextSlide, 1000);
-}
+    let image = new Array("https://www.themoviedb.org/t/p/w300_and_h450_bestv2/or06FN3Dka5tukK1e9sl16pB3iy.jpg","https://www.themoviedb.org/t/p/w300_and_h450_bestv2/78lPtwv72eTNqFW9COBYI0dWDJa.jpg", "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/gKzYx79y0AQTL4UAk1cBQJ3nvrm.jpg", "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/6WBeq4fCfn7AN0o21W9qNcRF2l9.jpg", "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/prSfAi1xGrhLQNxVSUFh61xQ4Qy.jpg", "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/vSNxAJTlD0r02V9sPYpOjqDZXUK.jpg", "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/RYMX2wcKCBAr24UyPD7xwmjaTn.jpg", "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/qhPtAc1TKbMPqNvcdXSOn9Bn7hZ.jpg", "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/wp6OxE4poJ4G7c0U2ZIXasTSMR7.jpg", "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/tVFRpFw3xTedgPGqxW0AOI8Qhh0.jpg","https://www.themoviedb.org/t/p/w300_and_h450_bestv2/r7vmZjiyZw9rpJMQJdXpjgiCOk9.jpg","https://www.themoviedb.org/t/p/w300_and_h450_bestv2/4ssDuvEDkSArWEdyBl2X5EHvYKU.jpg","https://www.themoviedb.org/t/p/w300_and_h450_bestv2/8YxOIPrabqkQCOKKbuxaz9IcqhO.jpg","https://www.themoviedb.org/t/p/w300_and_h450_bestv2/rAGiXaUfPzY7CDEyNKUofk3Kw2e.jpg","https://www.themoviedb.org/t/p/w300_and_h450_bestv2/uGBVj3bEbCoZbDjjl9wTxcygko1.jpg","https://www.themoviedb.org/t/p/w300_and_h450_bestv2/y4MBh0EjBlMuOzv9axM4qJlmhzz.jpg","https://www.themoviedb.org/t/p/w300_and_h450_bestv2/c24sv2weTHPsmDa7jEMN0m2P3RT.jpg","https://www.themoviedb.org/t/p/w300_and_h450_bestv2/rzRwTcFvttcN1ZpX2xv4j3tSdJu.jpg","https://www.themoviedb.org/t/p/w300_and_h450_bestv2/uxzzxijgPIY7slzFvMotPv8wjKA.jpg","https://www.themoviedb.org/t/p/w300_and_h450_bestv2/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg","https://www.themoviedb.org/t/p/w300_and_h450_bestv2/vzqq2KOoyI30zH7eaDU4rrCbSVP.jpg","https://www.themoviedb.org/t/p/w300_and_h450_bestv2/AtsgWhDnHTq68L0lLsUrCnM7TjG.jpg");
 
-function stopSlideShow() {
-    isPlaying = false;
-    startStopButton.textContent = "Start";
-    clearInterval(intervalId);
-}
+    let length = image.length;
+    let index = 0;
 
-function showSlide(index) {
-    slides.forEach((slide, i) => {
-        slide.style.transform = `translateX(${100 * (i - index)}%)`;
-    });
-}
-
-function showNextSlide() {
-    currentIndex = (currentIndex + 1) % slides.length;
-    showSlide(currentIndex);
-}
-
-function showPreviousSlide() {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    showSlide(currentIndex);
-}
-
-startStopButton.addEventListener("click", () => {
-    if (isPlaying) {
-        stopSlideShow();
-    } else {
-        startSlideShow();
+    function slide () {
+        index++;
+        if (index >= length){
+            index = 0;
+        }
+        
+        document.img_slide.src = image[index];
     }
-});
 
-prevButton.addEventListener("click", () => {
-    stopSlideShow();
-    showPreviousSlide();
-});
+    function auto () {
+        setInterval(slide, 2000);
+    }
 
-nextButton.addEventListener("click", () => {
-    stopSlideShow();
-    showNextSlide();
-});
 
-startSlideShow();
-
+    window.onload = function(){
+        slide();
+        auto(); 
+    }
 </script>
 </html>
