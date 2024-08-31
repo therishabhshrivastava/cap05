@@ -1,0 +1,33 @@
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.wrapper > div {
+    width: 32%;
+    box-sizing: border-box;
+    text-align: center;
+   
+}
+
+.wrapper > div img {
+    width: 100%;
+    height: auto;
+}
+
+.wrapper > div p {
+   font-weight: 600;
+   font-size: larger;
+}
+
+.wrapper > div button {
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 30px;
+    color: black;
+    background-color: rgb(189, 130, 243);
+    border: none;
+    font-weight: 600;
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        thead th {
+            background-color: green;
+            color: black;
+        }
+        
+        th, td {
+            padding: 10px;
+            border: 1px solid  black;
+        }
+       
+        #sum{
+            background-color: #f2f2f2;
+        }        
+       
+        #sum th {
+            border-left: none;
+            border-right: none;
+        }
+
+        #sum th:nth-child(1) {
+            border-left: 1px solid black;
+        }
+
+        #sum th:nth-child(5) {
+            border-right: 1px solid black;
+        }
+    </style>
+    <title>Styled Table</title>
+</head>
+<body>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Price per Unit</th>
+                <th>Description</th>
+                <th>Total Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Product 1</td>
+                <td>3</td>
+                <td>$10</td>
+                <td>This is Product 1</td>
+                <th>$20</th>
+            </tr>
+            <tr>
+                <td>Product 2</td>
+                <td>3</td>
+                <td>$20</td>
+                <td>This is Product 2</td>
+                <th>$60</th>
+            </tr>
+            <tr id="sum">
+                <th>Sum</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th>$80</th>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
